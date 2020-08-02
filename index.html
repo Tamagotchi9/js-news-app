@@ -3,12 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Business News App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" integrity="sha384-3Nqiqht3ZZEO8FKj7GR1upiI385J92VwWNLj+FqHxtLYxd9l+WYpeqSOrLh0T12c" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="header">
-    <h3 class="header__title">Business News</h3>
-    <p class="header__subtitle">News that's everyone needs to know</p>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="header__title">Business News</h1>
+                <p class="header__subtitle">News that's everyone needs to know</p>
+            </div>
+        </div>
+    </div>
 </header>
+<section class="news">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <div class="news__item">
+                    <div class="news__inner">
+                        <div class="news__info">
+                            <div class="news__post-time">
+                                <i class="far fa-clock"></i>
+                                <div>11H</div>
+                            </div>
+                            <div class="news__post-save">
+                                <i class="far fa-bookmark"></i>
+                                <div>SAVE</div>
+                            </div>
+                        </div>
+                        <img class="news__photo" src="https://via.placeholder.com/250x150" alt="">
+                        <div class="news__content">
+                            <a href="#" class="news__suptitle">NEWS</a>
+                            <div class="news__title">Kodak Gave Its CEO Stock Options, Then News Broke of a Million-Dollar Federal Deal and Prices Soared</div>
+                            <div class="news__author">Alyse Stanley</div>
+                            <div class="news__description">The Eastman Kodak Company gave its CEO 1.75 million stock options just one day before the company’s stock soared…</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="sidebar">
+                    <div class="sidebar__text"><b class="text-black">You</b> may also like</div>
+                    <div class="sidebar__item">
+                        <ul class="sidebar__photos">
+                            <li>
+                                <img src="https://via.placeholder.com/150x100" class="sidebar__small-img" alt="">
+                            </li>
+                            <li>
+                                <img src="https://via.placeholder.com/150x100" class="sidebar__small-img" alt="">
+                            </li>
+                            <li>
+                                <img src="https://via.placeholder.com/150x100" class="sidebar__small-img" alt="">
+                            </li>
+                        </ul>
+                        <img class="sidebar__big-img" src="https://via.placeholder.com/470x250" alt="">
+                        <div class="sidebar__content">
+                            <div class="sidebar__title">One Week-Old Tesla Model X Has Catastrophic Suspension
+                                Failure And The Resulting Twitter Feed
+                                Is As Bad As You'd Think</div>
+                            <div class="sidebar__author">
+                                Jason Lanson
+                                <span class="sidebar__post-time">Yesterday 7:00PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
