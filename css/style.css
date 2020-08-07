@@ -19,6 +19,10 @@
     font-family: "Antic Slab", sans-serif;
 }
 
+.news {
+    list-style-type: none;
+}
+
 .news__item {
     margin-bottom: 50px;
     border-top: 1px solid #ccc;
@@ -35,6 +39,11 @@
     margin-right: 30px;
     display: inline-block;
     text-align: center;
+}
+
+.news__photo {
+    width: 400px;
+    height: auto;
 }
 
 .news__content {

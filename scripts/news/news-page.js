@@ -1,4 +1,5 @@
 import NewsCatalog from "./components/news-catalog.js";
+import NewsService from "./news-service.js";
 
 export default class NewsPage {
     constructor({ header, element, footer }) {
@@ -7,10 +8,12 @@ export default class NewsPage {
         this.footer = footer;
 
         this._render();
-
-        new NewsCatalog({
-            element: this._element.querySelector('[data-component="news-catalog"]')
-        });
+        NewsService.getAll().then(articles => {
+            new NewsCatalog({
+                element: this._element.querySelector('[data-component="news-catalog"]'),
+                news: articles
+            });
+        })
     }
 
     _render() {
@@ -25,7 +28,6 @@ export default class NewsPage {
             </div>
         `;
         this._element.innerHTML =`            
-            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
                         <div data-component="news-catalog"></div>
@@ -60,7 +62,6 @@ export default class NewsPage {
                         </div>
                     </div>
                 </div>
-            </div>
         `;
         this.footer.innerHTML = `
             <div class="container">

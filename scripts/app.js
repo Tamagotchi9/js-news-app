@@ -5,3 +5,4 @@ new NewsPage({
     element: document.querySelector('[data-main-content]'),
     footer: document.querySelector('[data-page-footer]')
 });
+
