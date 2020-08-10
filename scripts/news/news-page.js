@@ -1,5 +1,7 @@
 import NewsCatalog from "./components/news-catalog.js";
+import NewsViewer from "./components/news-viewer.js";
 import NewsService from "./news-service.js";
+
 
 export default class NewsPage {
     constructor({ header, element, footer }) {
@@ -8,12 +10,38 @@ export default class NewsPage {
         this.footer = footer;
 
         this._render();
-        NewsService.getAll().then(articles => {
-            new NewsCatalog({
-                element: this._element.querySelector('[data-component="news-catalog"]'),
-                news: articles
-            });
+
+        this._initCatalog();
+        this._initViewer();
+
+
+    }
+
+    _initCatalog() {
+        this._catalog = new NewsCatalog({
+            element: this._element.querySelector('[data-component="news-catalog"]'),
         })
+        this._showNews();
+
+        this._catalog.subscribe('news-selected', (newsItemTitle) => {
+            NewsService.getOneById(newsItemTitle)
+                .then(newsItem => {
+                    this._catalog.hide();
+                    this._viewer.show(newsItem);
+                })
+        });
+    }
+
+
+    _initViewer() {
+        this._viewer = new NewsViewer({
+            element: this._element.querySelector('[data-component="news-viewer"]'),
+        });
+    }
+
+    async _showNews() {
+        const news = await NewsService.getAll()
+        this._catalog.show(news);
     }
 
     _render() {
@@ -31,6 +59,7 @@ export default class NewsPage {
                 <div class="row">
                     <div class="col-md-8">
                         <div data-component="news-catalog"></div>
+                        <div data-component="news-viewer"></div>
                     </div>
                     <!--Sidebar-->
                     <div class="col-md-4">

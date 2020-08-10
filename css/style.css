@@ -119,8 +119,9 @@
     margin-bottom: 20px;
 }
 
-.news-details__author {
-
+.news-details__big-image {
+    max-width: 1000px;
+    height: auto;
 }
 
 .news-details__description {
