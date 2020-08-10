@@ -14,6 +14,5 @@ const NewsService = {
     },
 
 }
-console.log(NewsService.getOneById('Chinese Tesla'));
 
 export default NewsService;

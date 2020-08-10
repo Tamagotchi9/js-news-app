@@ -5,11 +5,13 @@ export default class NewsViewer extends Component{
         super({ element });
         this._element = element;
 
+        this.on('click', 'back-button', () => {
+            this.emit('back');
+        });
     }
 
     show(newsItem) {
         this._news = newsItem;
-        console.log(newsItem);
 
         this._render();
 
@@ -20,7 +22,10 @@ export default class NewsViewer extends Component{
         const {title, author, description, publishedAt, urlToImage, content} = this._news;
 
         this._element.innerHTML = `
-            <a href="#" class="news-details__headline">News</a>
+            <div class="news-details__backToNews" data-element="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <button class="news-details__button">Back to news</button>
+            </div>
             <h1 class="news-details__title">${ title }</h1>
             <div class="news-details__author">
                 ${ author }
