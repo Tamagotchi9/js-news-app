@@ -1,4 +1,4 @@
-import Component from "../../component.js";
+import Component from "../utils/component.js";
 
 export default class NewsViewer extends Component{
     constructor({ element }) {

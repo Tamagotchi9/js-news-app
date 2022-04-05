@@ -1,4 +1,4 @@
-import Component from "../../component.js";
+import Component from "../utils/component.js";
 
 export default class NewsCatalog extends Component{
     constructor({ element }) {
@@ -13,6 +13,7 @@ export default class NewsCatalog extends Component{
 
             this.emit('news-selected', newsElement.dataset.newsTitle);
         });
+
     }
 
     show(news) {
@@ -37,10 +38,12 @@ export default class NewsCatalog extends Component{
                                     <div>SAVE</div>
                                 </div>
                             </div>
-                            <img class="news__photo"  data-element="news-link" src="${ newsItem.urlToImage }" alt="">
+                            <a href="#${newsItem.title}" data-element="news-link">
+                                <img class="news__photo" src="${ newsItem.urlToImage }" alt="">
+                            </a>
                             <div class="news__content">
                                  <a href="#" class="news__suptitle">NEWS</a>
-                                 <div class="news__title" data-element="news-link">${ newsItem.title }</div>
+                                 <a href="#${ newsItem.title }" class="news__title" data-element="news-link">${ newsItem.title }</a>
                                  <div class="news__author">${ newsItem.author }</div>
                                  <div class="news__description">${ newsItem.description }</div>
                             </div>

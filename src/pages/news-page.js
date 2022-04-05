@@ -1,7 +1,7 @@
-import NewsCatalog from "./components/news-catalog.js";
-import NewsViewer from "./components/news-viewer.js";
-import Sidebar from "./components/sidebar.js";
-import NewsService from "./news-service.js";
+import NewsCatalog from "../components/news-catalog.js";
+import NewsViewer from "../components/news-viewer.js";
+import Sidebar from "../components/sidebar.js";
+import NewsService from "../utils/news-service.js";
 
 
 export default class NewsPage {
@@ -24,7 +24,7 @@ export default class NewsPage {
         this._showNews();
 
         this._catalog.subscribe('news-selected', (newsItemTitle) => {
-            NewsService.getOneById(newsItemTitle)
+            NewsService.getOneByTitle(newsItemTitle)
                 .then(newsItem => {
                     this._catalog.hide();
                     this._viewer.show(newsItem);
@@ -48,10 +48,17 @@ export default class NewsPage {
         this._sidebar = new Sidebar({
             element: this._element.querySelector('[data-component="sidebar"]'),
         });
+
+        this._showSidebarNews();
+    }
+
+    async _showSidebarNews() {
+        const news = await NewsService.getSidebarNews();
+        this._sidebar.show(news);
     }
 
     async _showNews() {
-        const news = await NewsService.getAll()
+        const news = await NewsService.getAll();
         this._catalog.show(news);
     }
 

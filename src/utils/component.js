@@ -15,6 +15,8 @@ export default class Component {
         this._element.addEventListener(eventName, (event) => {
             const delegateTarget = event.target.closest(`[data-element='${elementName}']`);
 
+
+
             if (!delegateTarget) {
                 return;
             }

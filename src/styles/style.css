@@ -42,8 +42,8 @@
 }
 
 .news__photo {
-    width: 400px;
-    height: auto;
+    max-width: 400px;
+    max-height: 100%;
 }
 
 .news__content {
@@ -51,6 +51,8 @@
 }
 
 .news__suptitle {
+    margin-bottom: 30px;
+    display: block;
     text-decoration: none;
     font-weight: 500;
 }
@@ -59,6 +61,15 @@
     font-family: "Antic Slab", sans-serif;
     font-size: 26px;
     font-weight: 700;
+    color: #000000;
+}
+
+.news__title:hover {
+    color: #000000;
+}
+
+.news__author {
+    margin-bottom: 30px;
 }
 
 .sidebar-outer {
@@ -88,6 +99,50 @@
 .sidebar__photos li {
     display: inline-block;
     margin-right: 10px;
+}
+
+.sidebar__small-img {
+    width: 150px;
+    height: 100px;
+}
+
+.sidebar__shader {
+    display: block;
+    position: relative;
+}
+
+.sidebar__shader:after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../icons/eye.svg') no-repeat center;
+
+    opacity: 0;
+}
+
+.sidebar__shader:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+}
+
+.sidebar__shader:hover:before,
+.sidebar__shader:hover:after { opacity: 1; }
+
+
+.sidebar__big-img {
+    width: 470px;
+    height: auto;
 }
 
 .sidebar__content {
